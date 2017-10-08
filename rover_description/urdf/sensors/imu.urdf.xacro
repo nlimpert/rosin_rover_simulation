@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<!--
+Author: David Masternak
+email: david.masternak@alumni.fh-aachen.de
+
+Update: Christoph Gollok
+	christoph.gollok@alumni.fh-aachen.de
+
+
+IMU for the rover
+
+ToDO: Maybe change name of the topicname
+-->
+
+<robot>
+  <!-- IMU LINK -->
+  <link name="imu_link">
+    <inertial>
+      <mass value="0.001"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.000001" iyz="0" izz="0.0001"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <box size=".001 .001 .001"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- IMU JOINT -->
+  <joint name="imu_joint" type="fixed">
+    <origin xyz="-0.06 0 0.2" rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="imu_link" />
+  </joint>
+
+  <!-- ROS IMU PLUGIN -->
+  <gazebo>
+    <plugin name="imu_controller" filename="libhector_gazebo_ros_imu.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>50.0</updateRate> 
+      <bodyName>base_link</bodyName>
+      <topicName>imu_data</topicName>
+      <gaussianNoise>2.89e-08</gaussianNoise>
+      <xyzOffsets>0 0 0</xyzOffsets>
+      <rpyOffsets>0 0 0</rpyOffsets>
+      <position name="imu_position"/>
+    </plugin>
+  </gazebo>
+</robot>

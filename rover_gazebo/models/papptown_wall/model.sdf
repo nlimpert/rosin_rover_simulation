@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name="mascor_pappTown_wall">
+    <pose>0 0 0 0 0 0</pose>
+    <static>true</static>
+    <link name="link">
+      <pose>0 0 .25 0 0 0</pose>
+      <collision name="collision">
+        <geometry>
+           <box>
+             <size>.1 1 .5</size>
+           </box>
+        </geometry>
+     </collision>
+       <visual name="visual">
+        <geometry>
+          <box>
+            <size>.1 1 .5</size>
+          </box>
+        </geometry>
+     <!--<material>
+          <script>
+            <uri>model://ar_tags/materials/scripts</uri>
+            <uri>model://ar_tags/materials/textures</uri>
+            <name>ARTag/Number</name>
+          </script>
+        </material> -->
+        <material>
+          <ambient>0.5 0.5 0.5 1</ambient>
+          <diffuse>0.57 0.417 0.25 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 0</emissive>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

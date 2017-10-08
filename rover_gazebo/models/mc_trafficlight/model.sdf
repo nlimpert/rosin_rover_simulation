@@ -1,0 +1,133 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name="MascorCity_TrafficLight">
+    <static>true</static>
+    <link name="trafficlight_body_link">
+      <pose>0 0 1.2 1.5708 0 0</pose>
+      <collision name="body_collision">
+        <geometry>
+          <mesh>
+            <uri>model://mc_trafficlight/meshes/MascorCity_Trafficlight_Body.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="body_visual">
+        <geometry>
+          <mesh>
+            <uri>model://mc_trafficlight/meshes/MascorCity_Trafficlight_Body.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      <!--
+	   <material>
+          <ambient>1 1 1 1</ambient>
+		  <diffuse>1 1 1 1</diffuse>
+       </material>
+	  -->
+      </visual>
+    </link>
+  
+  <link name="trafficlight_light_RED_link">
+      <pose>0 0 1.2 1.5708 0 0</pose>
+      <collision name="lights_RED_colision">
+        <geometry>
+           <mesh>
+            <uri>model://mc_trafficlight/meshes/MascorCity_Trafficlight_Lights_RED.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="lights_RED_visual">
+        <geometry>
+          <mesh>
+            <uri>model://mc_trafficlight/meshes/MascorCity_Trafficlight_Lights_RED.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      <material>
+          <ambient>1 1 1 1</ambient>
+		  <diffuse>1 1 1 1</diffuse>
+      </material> 
+      </visual>
+    </link>
+
+<link name="trafficlight_light_YELLOW_link">
+      <pose>0 0 1.2 1.5708 0 0</pose>
+      <collision name="lights_YELLOW_colision">
+        <geometry>
+           <mesh>
+            <uri>model://mc_trafficlight/meshes/MascorCity_Trafficlight_Lights_YELLOW.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="lights_YELLOW_visual">
+        <geometry>
+          <mesh>
+            <uri>model://mc_trafficlight/meshes/MascorCity_Trafficlight_Lights_YELLOW.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      <material>
+          <ambient>1 1 1 1</ambient>
+		  <diffuse>1 1 1 1</diffuse>
+      </material> 
+      </visual>
+    </link>
+
+
+<link name="trafficlight_light_GREEN_link">
+      <pose>0 0 1.2 1.5708 0 0</pose>
+      <collision name="lights_GREEN_colision">
+        <geometry>
+           <mesh>
+            <uri>model://mc_trafficlight/meshes/MascorCity_Trafficlight_Lights_GREEN.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="lights_GREEN_visual">
+        <geometry>
+          <mesh>
+            <uri>model://mc_trafficlight/meshes/MascorCity_Trafficlight_Lights_GREEN.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+     <material>
+          <ambient>1 1 1 1</ambient>
+		  <diffuse>1 1 1 1</diffuse>
+      </material> 
+      </visual>
+    </link>
+
+
+	 <link name="trafficlight_stand_link">
+      <pose>0 0 1.2 1.5708 0 0</pose>
+      <collision name="stand_colision">
+        <geometry>
+           <mesh>
+            <uri>model://mc_trafficlight/meshes/MascorCity_Trafficlight_Stand.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="stand_visual">
+        <geometry>
+          <mesh>
+            <uri>model://mc_trafficlight/meshes/MascorCity_Trafficlight_Stand.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+<!--
+	   <material>
+          <ambient>1 1 1 1</ambient>
+		  <diffuse>1 1 1 1</diffuse>
+       </material>
+-->
+      </visual>
+    </link>
+	
+	
+  </model>
+</sdf>

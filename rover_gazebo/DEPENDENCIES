@@ -1,0 +1,2 @@
+sudo apt-get install ros-kinectic-gazebo-ros
+sudo apt-get install ros-kinetic-gazebo-ros-control

@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name="mc_street_junction">
+    <static>true</static>
+    <link name="street_link">
+      <pose>0 0 0 1.5708 0 0</pose>
+      <collision name="street_collision">
+        <geometry>
+          <mesh>
+            <uri>model://small_mascor_city_street_junction/meshes/maskor_city_street_straight_street.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="street_visual">
+        <geometry>
+          <mesh>
+            <uri>model://small_mascor_city_street_junction/meshes/maskor_city_street_straight_street.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      <!--
+	   <material>
+          <ambient>1 1 1 1</ambient>
+		  <diffuse>1 1 1 1</diffuse>
+       </material>
+	  -->
+      </visual>
+    </link>
+  
+  <link name="border_link">
+      <pose>0 0 .4 1.5708 0 0</pose>
+      <collision name="border_colision">
+        <geometry>
+           <mesh>
+            <uri>model://small_mascor_city_street_junction/meshes/maskor_city_street_straight_border.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="border_visual">
+        <geometry>
+          <mesh>
+            <uri>model://small_mascor_city_street_junction/meshes/maskor_city_street_straight_border.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      <material>
+          <ambient>1 1 1 1</ambient>
+		  <diffuse>1 1 1 1</diffuse>
+      </material> 
+      </visual>
+    </link>
+
+
+	
+	
+  </model>
+</sdf>

@@ -1,0 +1,1 @@
+rostopic pub --once /gazebo/set_model_state gazebo_msgs/ModelState '{model_name: RoverROS_SS15, pose: { position: { x: 0, y: -3.14, z: 0.6 }, orientation: {x: 0, y: 0, z: 1.5708, w: 0 } }, twist: { linear: { x: 0, y: 0, z: 0 }, angular: { x: 0, y: 0, z: 0}  }, reference_frame: world }'

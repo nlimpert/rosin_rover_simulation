@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<launch>
+   <!-- <param name="robot_description" command="cat $(find maskor_description)/urdf/rover15/rover15.urdf" /> -->
+<param name="robot_description"
+      command="$(find xacro)/xacro '$(find rover_description)/urdf/rover15.urdf.xacro'" /> 
+
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
+
+ <!-- rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" respawn="false" output="screen"/>
+
+</launch>

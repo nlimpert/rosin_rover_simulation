@@ -1,0 +1,360 @@
+material ARTag/1
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_1.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/2
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_2.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/3
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_3.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/4
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_4.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/5
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_5.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/6
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_6.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/7
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_7.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/8
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_8.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/9
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_9.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/10
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_10.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/11
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_11.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/12
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_12.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/13
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_13.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/14
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_14.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/15
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_15.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/16
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_16.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/17
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_17.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/18
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_18.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/19
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_19.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+
+material ARTag/20
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture border_MarkerData_20.png
+        filtering anistropic
+        max_anisotropy 16
+      }
+      
+    }
+  }
+}
+

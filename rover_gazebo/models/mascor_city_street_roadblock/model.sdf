@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name="MascorCity_street_roadblock">
+    <static>true</static>
+    <link name="roadblock_street_link">
+      <pose>0 0 -0.43 1.5708 0 0</pose>
+      <collision name="street_colision">
+        <geometry>
+          <mesh>
+            <uri>model://mascor_city_street_roadblock/meshes/mascorcity_street_roadblock.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="street_visual">
+        <geometry>
+          <mesh>
+            <uri>model://mascor_city_street_roadblock/meshes/mascorcity_street_roadblock.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+     <!--<material>
+          <script>
+            <uri>model://ar_tags/materials/scripts</uri>
+            <uri>model://ar_tags/materials/textures</uri>
+            <name>ARTag/Number</name>
+          </script>
+        </material> -->
+      </visual>
+    </link>
+	 <link name="roadblock_blocks_link">
+      <pose>0 0 -0.43 1.5708 0 0</pose>
+      <collision name="blocks_colision">
+        <geometry>
+           <mesh>
+            <uri>model://mascor_city_street_roadblock/meshes/mascorcity_street_roadblock_blocks.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="blocks_visual">
+        <geometry>
+          <mesh>
+            <uri>model://mascor_city_street_roadblock/meshes/mascorcity_street_roadblock_blocks.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+     <!--<material>
+          <script>
+            <uri>model://ar_tags/materials/scripts</uri>
+            <uri>model://ar_tags/materials/textures</uri>
+            <name>ARTag/Number</name>
+          </script>
+        </material> -->
+      </visual>
+    </link>
+	
+  </model>
+</sdf>

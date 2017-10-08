@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<launch>
+<node pkg="maskor_gazebo" type="ackermann_cmd_wrapper" name="ackermann_cmd_wrapper" output="screen"/>
+
+<node pkg="ackermann_qt" type="qteleop.py" name="qteleop"/>
+
+ <!-- teleop -->
+  <node pkg="joy" type="joy_node" name="joy_node">
+                <param name="dev" value="/dev/input/js0" />
+                <param name="deadzone" value="0.3" />
+  </node>
+  <node pkg="rover_teleop" type="teleop.py" name="teleop">
+                <param name="turn_scale" value="1.0" />
+                <param name="drive_scale" value="1.0" />
+  </node>
+
+
+
+</launch>

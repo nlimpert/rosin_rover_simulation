@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<!--
+Author: Marcel Stüttgen
+email: stuettgen@fh-aachen.de
+
+launch file for spawning the rover robot model in Gazebo
+-->
+
+<launch>
+
+	<!-- Vehicle pose -->
+	 <arg name="x" default="0.0"/>
+	<arg name="y" default="2.6"/>
+	<arg name="z" default="0.6"/>
+	<arg name="roll" default="0.0"/>
+	<arg name="pitch" default="0.0"/>
+	<arg name="yaw" default="-1.5078"/>
+
+	<arg name="cmd_timeout" default="0.5"/>
+
+
+	<!-- send robot urdf to gazebo param server -->
+	<param name="robot_description" command="$(find xacro)/xacro.py '$(find rover_description)/urdf/em_rover.urdf.xacro'"/>
+
+	<!-- Spawn robot in gazebo -->
+				<node name="vehicle_state_publisher" pkg="robot_state_publisher"
+							type="robot_state_publisher">
+					<param name="publish_frequency" value="30.0"/>
+				</node>
+				<!-- Spawn the vehicle. -->
+				<node name="spawn_vehicle" pkg="gazebo_ros" type="spawn_model"
+							args="-urdf -param robot_description -model RoverROS_SS15
+										-x $(arg x) -y $(arg y) -z $(arg z)
+										-R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
+
+				<!-- Load the joint controllers. One of these publishes the joint states
+						 to joint_states. -->
+				<node name="controller_spawner" pkg="controller_manager" type="spawner"
+							args="$(find ackermann_vehicle_gazebo)/config/em_3905_joint_ctrlr_params.yaml"/>
+
+				<!-- Control the steering, axle, and shock absorber joints. -->
+				<node name="ackermann_controller" pkg="ackermann_vehicle_gazebo"
+							type="ackermann_controller.py">
+					<param name="cmd_timeout" value="$(arg cmd_timeout)"/>
+					<rosparam file="$(find ackermann_vehicle_gazebo)/config/em_3905_ackermann_ctrlr_params.yaml" command="load"/>
+				</node>
+
+
+		 <!--node name="fake_odom" pkg="maskor_gazebo" type="fake_odom"/-->
+
+		<!-- RVIZ Stuff -->
+
+		 <!-- Read joint positions from a GUI, then publish them to joint_states. -->
+			<node name="joint_state_publisher" pkg="joint_state_publisher"
+						type="joint_state_publisher">
+				<param name="rate" value="30"/>
+				<param name="use_gui" value="false"/>
+			</node>
+		<node pkg="rover_gazebo" type="ackermann_cmd_wrapper" name="ackermann_cmd_wrapper" output="screen"/>
+		<param name="steering_angle" value="33.8"/> <!-- deg/s -->
+		<param name="steering_velocity" value="180.0"/>  <!-- deg/s -->
+		<param name="max_speed" value="1.5"/> <!-- m/s -->
+		<param name="acceleration" value="8"/> <!-- m/s² -->
+		<param name="invert_steering" value="1"/><!-- invert LeftRight -->
+
+
+
+</launch>

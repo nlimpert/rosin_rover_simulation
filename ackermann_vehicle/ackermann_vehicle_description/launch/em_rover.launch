@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+
+<!-- ackermann_vehicle.launch
+
+Use Gazebo to simulate a vehicle with Ackermann steering.
+
+Arguments:
+    namespace (string, default: ackermann_vehicle)
+        Vehicle namespace.
+    world_name (string, default: worlds/empty.world)
+        Gazebo world name.
+    cmd_timeout (float, default: 0.5)
+        Command timeout passed to the ackermann_controller.py node.
+    x (float, default: 0.0)
+    y (float, default: 0.0)
+    z (float, default: 0.1)
+    roll (float, default: 0.0)
+    pitch (float, default: 0.0)
+    yaw (float, default: 0.0)
+        Vehicle pose. x, y, and z are measured in meters. roll, pitch, and yaw
+        are measured in radians.
+
+Copyright (c) 2013 Wunderkammer Laboratory
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<launch>
+  <arg name="namespace" default="ackermann"/>
+  <arg name="world_name" default="$(find rover_gazebo)/worlds/ROS_SS15.world"/>
+  <arg name="cmd_timeout" default="0.5"/>
+
+  <!-- Vehicle pose -->
+   <arg name="x" default="0.0"/>
+  <arg name="y" default="-5.0"/>
+  <arg name="z" default="0.15"/>
+  <arg name="roll" default="0.0"/>
+  <arg name="pitch" default="0.0"/>
+  <arg name="yaw" default="1.5078"/>
+
+   <group ns="$(arg namespace)">
+    <!-- robot_description is used by nodes that publish to joint_states. -->
+    <param name="robot_description"
+           command="$(find xacro)/xacro.py $(find rover_description)/urdf/em_rover.urdf.xacro"/>
+
+    <!-- Read joint positions from joint_states, then publish the vehicle's
+         state to tf. -->
+    <node name="vehicle_state_publisher" pkg="robot_state_publisher"
+          type="robot_state_publisher">
+      <param name="publish_frequency" value="30.0"/>
+    </node>
+  
+  
+    <!-- Create the world. -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="world_name" value="$(arg world_name)"/>
+    </include>
+
+    <!-- Spawn the vehicle. -->
+    <node name="spawn_vehicle" pkg="gazebo_ros" type="spawn_model"
+          args="-urdf -param robot_description -model Rover15
+                -gazebo_namespace /$(arg namespace)/gazebo
+                -x $(arg x) -y $(arg y) -z $(arg z)
+                -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)"/>
+
+    <!-- Load the joint controllers. One of these publishes the joint states
+         to joint_states. -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner"
+          args="$(find ackermann_vehicle_gazebo)/config/em_3905_joint_ctrlr_params.yaml"/>
+
+    <!-- Control the steering, axle, and shock absorber joints. -->
+    <node name="ackermann_controller" pkg="ackermann_vehicle_gazebo"
+          type="ackermann_controller.py">
+      <param name="cmd_timeout" value="$(arg cmd_timeout)"/>
+      <rosparam file="$(find ackermann_vehicle_gazebo)/config/em_3905_ackermann_ctrlr_params.yaml" command="load"/>
+    </node>
+  </group>
+
+
+
+<!-- RVIZ Stuff -->
+
+ <!-- Read joint positions from a GUI, then publish them to joint_states. -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher"
+        type="joint_state_publisher" ns="$(arg namespace)">
+    <param name="rate" value="30"/>
+    <param name="use_gui" value="true"/>
+  </node>
+
+ <node name="rviz" pkg="rviz" type="rviz" ns="$(arg namespace)"/>
+
+
+
+<!-- teleop  stuff -->
+  <node pkg="joy" type="joy_node" name="joy_node">
+                <param name="dev" value="/dev/input/js0" />
+                <param name="deadzone" value="0.3" />
+  </node>
+  <node pkg="rover_teleop" type="teleop.py" name="teleop">
+                <param name="turn_scale" value="1.0" />
+                <param name="drive_scale" value="1.0" />
+  </node>
+
+<!-- cmd_vel to ackermann_cmd converter -->
+
+<node pkg="maskor_gazebo" type="ackermann_cmd_wrapper" name="ackermann_cmd_wrapper" output="screen"/>
+
+
+
+</launch>
