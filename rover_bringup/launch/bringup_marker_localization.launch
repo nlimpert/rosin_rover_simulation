@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+    <!-- start webcam -->	
+    <include file="$(find rover_bringup)/launch/webcam.launch"/>
+    <!-- start tf_rover -->	
+    <include file="$(find rover_bringup)/launch/tf_rover.launch"/>
+    <!-- start tf_map_markers -->	
+    <include file="$(find rover_bringup)/launch/tf_map_markers.launch"/>
+    <!-- start fh_ar_track_alvar -->	
+    <include file="$(find rover_bringup)/launch/fh_ar_track_alvar.launch"/>
+    <!-- start marker localization -->	
+    <include file="$(find rover_bringup)/launch/marker_localization.launch"/>	
+
+</launch>

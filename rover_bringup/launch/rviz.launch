@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>	
+
+
+	<!-- start rviz with config file -->
+	<node pkg="rviz" type="rviz" name="rviz"
+		args="-d $(find rover_bringup)/config/rviz.rviz"/>
+
+
+</launch>

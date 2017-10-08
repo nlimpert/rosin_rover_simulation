@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+	<!--  **********  TFs **********  -->
+	<arg name="pi" value="3.14159265358979" />
+	<arg name="pi/2" value="1.5707963267948966" />
+	<arg name="pi/4" value="0.785398163397448" />
+ 	<arg name="optical_rotate" value="0 0 0 -$(arg pi/2) 0 -$(arg pi/2)" />
+	<arg name="imu_rotate" value="0 0 0 -$(arg pi/2) 0 0" />
+
+	<!-- map to markers add all markers here! -->
+	<!-- ID0 -->
+	<node pkg="tf" type="static_transform_publisher" name="map_to_m0_link" args="0 0 0.8 -$(arg pi/2) 0 -$(arg pi/2) map ar_marker_0 10"/>
+	<!-- ID1 -->
+	<node pkg="tf" type="static_transform_publisher" name="map_to_m3_link" args="0 0.8 0.5 $(arg pi/2) 0 -$(arg pi/2) map ar_marker_3 10"/>
+	<!-- ID6 -->
+	<node pkg="tf" type="static_transform_publisher" name="map_to_m6_link" args="0 0.8 0.5 $(arg pi/2) 0 -$(arg pi/2) map ar_marker_6 10"/>
+
+</launch>

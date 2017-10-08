@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+    <!-- start localization node -->
+    <node name="marker_localization" pkg="rover_bringup" type="marker_localization" output="screen" args="map">
+    	
+	<!-- base frame of the robot -->
+	<param name="base_frame" value="base_footprint" />
+	<!-- output frame of the node (tf/pose parent frame) -->
+	<param name="ouput_frame" value="map" />
+	<!-- the frame of the camera -->
+	<param name="camera_frame" value="camera_link" />
+	<!-- broadcast tf ? -->
+	<param name="broadcast_tf" value="true" />
+	<!-- publish pose of the robot ? -->
+	<param name="publish_pose" value="true" />
+	<!-- only 2D calculation instead of 3D ? -->
+	<param name="two_D" value="true" />
+	
+
+   </node>	
+
+</launch>

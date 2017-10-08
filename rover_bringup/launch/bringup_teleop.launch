@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<launch>
+
+	<node pkg="joy" type="joy_node" name="joy_node"/>
+
+	<node pkg="rover_bringup" type="teleop.py" name="teleop_node" output="screen"/>
+
+	<node pkg="rosserial_python" type="serial_node.py" name="serial_node" output="screen">
+	    <param name="port" value="/dev/ttyUSB0"/> <!-- for minnowboard uart /dev/ttyS5-->
+	    <param name="baud" value="56700"/>
+  	</node>
+
+</launch>
